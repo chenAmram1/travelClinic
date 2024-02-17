@@ -7,10 +7,11 @@ body {
     background-color: rgb(241, 241, 241);
     font-family: "Arial Black", Helvetica, sans-serif;
     color: black;
+    background-color: rgb(255, 255, 255);
 }
 
 .navbar {
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(255, 255, 255);
     font-family: "Arial Black", Helvetica, sans-serif;
     color: rgb(2, 2, 2);
     padding: 50px;
@@ -148,6 +149,11 @@ nav a:hover, nav a:focus{
     text-align: right;
 
 }
+.footer-menus-container :hover{
+    color:  #3b33b4;
+
+}
+
 
 
 .footer-menus-container{
