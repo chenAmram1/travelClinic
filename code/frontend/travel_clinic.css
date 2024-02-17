@@ -1,4 +1,4 @@
-h1,
+h1
 {
     text-align: center;
 }
@@ -97,12 +97,18 @@ nav a:hover, nav a:focus{
 
 .cube {
     border-radius: 4px;
-    max-width: 10rem;
+    max-width: 200px;
     background-color: #ffffff;
     padding: 1rem;
     text-align: center;
     position: flex;
     border-radius: 10px;
+
+}
+
+.cube img{
+    width: 200px;
+    justify-content: center;
 
 }
 
@@ -139,7 +145,8 @@ nav a:hover, nav a:focus{
     padding-right: 30px;
     padding-bottom: 50px;
     padding-left: 80px;
-    text-align: center;
+    text-align: right;
+
 }
 
 
