@@ -1,0 +1,150 @@
+h1,
+{
+    text-align: center;
+}
+
+body {
+    background-color: rgb(241, 241, 241);
+    font-family: "Arial Black", Helvetica, sans-serif;
+    color: black;
+}
+
+.navbar {
+    background-color: rgb(241, 241, 241);
+    font-family: "Arial Black", Helvetica, sans-serif;
+    color: rgb(2, 2, 2);
+    padding: 50px;
+    margin: 50px;
+ 
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0.6rem 2rem;
+
+
+}
+
+.logo{
+    object-fit: contain;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+   
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #1a1818;
+}
+nav a:hover, nav a:focus{
+    text-decoration: underline;
+}
+
+.link{
+    display: block;
+    margin: 1rem auto;
+    background-color: #0e067c;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    width: fit-content;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+
+}
+
+.link:hover, .link:focus{
+    text-decoration: underline;
+
+}
+
+.section-wrapper{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#left-section {
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#right-section {
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+#left-section img{
+    max-width: 100%;
+}
+.cube-container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: flex;
+}
+
+.cube {
+    border-radius: 4px;
+    max-width: 10rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    position: flex;
+    border-radius: 10px;
+
+}
+
+.personalDetailes{
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+
+}
+
+
+.PersonalInformation{
+    border-radius: 4px;
+    max-width: 10rem;
+    background-color: #dfdfdf;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.header{
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    background-image:url("Corona_BG.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+
+#footer{
+    background-color: rgb(230, 230, 230);
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    text-align: center;
+}
+
+
+.footer-menus-container{
+display: grid;
+grid-template-columns: 25% 25% 25% 25%;
+
+}

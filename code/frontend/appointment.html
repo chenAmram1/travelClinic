@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>זימון תור</title>
+    <link rel="stylesheet" href="travel_clinic.css">
+    
+</head>
+<body>
+    <div id="header">
+        <nav>
+            <img class="logo" src="clalit_logo.png" alt="My Website Logo">
+
+            <ul>
+                <li><a href="index.html">אודות</a></li>
+                <li><a href="personalInfo.html">ייצוא מידע אישי</a></li>
+                <li><a href="medicalStatement.html">מילוי הצהרה רפואית</a></li>
+                <li><a href="appointment.html">זימון תור</a></li>
+            </ul>
+        </nav>
+
+
+
+        <h1>לזימון תור</h1>
+
+
+    </div>
+
+    <div id="choose_details">
+
+        <h4>אנא בחר מועד לתור</h4>
+        <ul>
+            <li>
+                <label for="city">בחירת עיר</label>
+                <select name="select_city">
+                    <option value="1">אפשרות 1</option>
+                    <option value="2">אפשרות 2</option>
+                    <option value="3">אפשרות 3</option>
+                  </select>
+              </li>
+          <li>
+            <label for="clinic">בחירת מרפאה</label>
+            <select name="select_clinic">
+                <option value="1">אפשרות 1</option>
+                <option value="2">אפשרות 2</option>
+                <option value="3">אפשרות 3</option>
+              </select>
+          </li>
+          <li>
+            <label for="date">בחירת מועד</label>
+            <input type="date" id="date" name="date">
+          </li>
+          
+            <li>
+                <label for="time">בחירת שעה</label>
+                <input type="time" id="time" name="ime">
+              </li>
+
+        </ul>
+
+        <button type="submit">שליחה</button>
+    </div>
+              
+</body>
+</html>
