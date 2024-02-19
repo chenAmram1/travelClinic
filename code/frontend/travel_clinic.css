@@ -8,6 +8,7 @@ body {
     font-family: "Arial Black", Helvetica, sans-serif;
     color: black;
     background-color: rgb(255, 255, 255);
+    
 }
 
 .navbar {
@@ -160,4 +161,51 @@ nav a:hover, nav a:focus{
 display: grid;
 grid-template-columns: 25% 25% 25% 25%;
 
+}
+
+.export_content_container{
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+#export_content_img {
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#export_content {
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+#export_content_img img{
+    max-width: 100%;
+}
+
+.personalDetailes_container{
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 33% 33% 33%; 
+}
+
+#PersonalInformation{
+    border-style: solid;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 1.5rem;
+}
+
+#PersonalInformation img{
+    padding: 20px;
 }
