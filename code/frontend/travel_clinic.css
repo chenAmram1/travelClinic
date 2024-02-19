@@ -69,7 +69,37 @@ nav a:hover, nav a:focus{
     text-decoration: underline;
 
 }
+.header{
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    background-image:url("Corona_BG.jpg");
+    background-size: cover;
+    background-position: center center;
+}
 
+
+#footer{
+    background-color: rgb(230, 230, 230);
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    text-align: right;
+
+}
+.footer-menus-container :hover{
+    color:  #3b33b4;
+
+}
+
+
+
+.footer-menus-container{
+display: grid;
+grid-template-columns: 25% 25% 25% 25%;
+}
+=========================================================================
 .section-wrapper{
     display: grid;
     grid-template-columns: 60% 40%;
@@ -131,38 +161,7 @@ nav a:hover, nav a:focus{
 
 }
 
-.header{
-    text-align: center;
-    max-width: 100%;
-    overflow: hidden;
-    background-image:url("Corona_BG.jpg");
-    background-size: cover;
-    background-position: center center;
-}
-
-
-#footer{
-    background-color: rgb(230, 230, 230);
-    padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    text-align: right;
-
-}
-.footer-menus-container :hover{
-    color:  #3b33b4;
-
-}
-
-
-
-.footer-menus-container{
-display: grid;
-grid-template-columns: 25% 25% 25% 25%;
-
-}
-
+===============================================================
 .export_content_container{
     padding-left: 80px;
     padding-top: 20px;
@@ -209,3 +208,36 @@ grid-template-columns: 25% 25% 25% 25%;
 #PersonalInformation img{
     padding: 20px;
 }
+
+=========================================
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+   
+  }
+
+  #questionnaire{
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    text-align: right;
+  
+
+  }
+
+  .button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
