@@ -1,7 +1,7 @@
 {
   "name": "travelclinic",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -73,5 +73,6 @@
     "utils-merge": "^1.0.1",
     "vary": "^1.1.2"
   },
+  "devDependencies": {},
   "description": ""
 }
