@@ -1,0 +1,73 @@
+// https://github.com/tediousjs/node-mssql#es6-tagged-template-literals
+
+
+const mssql = require('mssql')
+
+const sqlConfig = {
+    user: "sa29",
+    password: "1234",
+    database: "MatchMe",
+    server: 'localhost', //Server to connect to. You can use 'localhost\instance' to connect to named instance.
+    port: 1433, //Port to connect to (default: 1433). Don't set when connecting to named instance.
+    pool: {
+        max: 10,
+        min: 0,
+        idleTimeoutMillis: 30000
+    },
+    options: {
+        encrypt: false, // for azure use true
+        trustServerCertificate: true // use true for local dev / self-signed certs
+    }
+}
+const appPool = new mssql.ConnectionPool(sqlConfig)
+
+//===============================================================
+
+
+const getUsersFromMatchme = async (req, theId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let myConnectionPoolToDB = await appPool.connect()
+            try {
+                let results = await myConnectionPoolToDB.query(`select * from Users`)//where id = ? OR id = ?`, (theId, theId + 2))
+                console.log(results);
+                resolve(results);
+            }
+            catch (err) {
+                console.log("there was an error while sending query to DB ", err);
+                reject(err);
+            }
+        }
+        catch (err) {
+            console.error('ERROR CONNECTION TO DB: ', err);
+            reject('ERROR CONNECTION TO DB: ', err);
+        }
+    })
+}
+
+module.exports.getUsersFromMatchme = getUsersFromMatchme;
+
+//===============================================================
+
+const getCities = async (req, theId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let myConnectionPoolToDB = await appPool.connect()
+            try {
+                let results = await myConnectionPoolToDB.query(`select * from City`)//where id = ? OR id = ?`, (theId, theId + 2))
+                console.log(results);
+                resolve(results);
+            }
+            catch (err) {
+                console.log("there was an error while sending query to DB ", err);
+                reject(err);
+            }
+        }
+        catch (err) {
+            console.error('ERROR CONNECTION TO DB: ', err);
+            reject('ERROR CONNECTION TO DB: ', err);
+        }
+    })
+}
+
+module.exports.getCities = getCities;
