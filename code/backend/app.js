@@ -2,19 +2,33 @@
 var express = require('express');
 var app = express();
 
+var myRepository= require('./myRepository')
 
   //=========================
 
 
-  app.get("/test", (req, res) => {
-    res.json({
-      fname:"chen"
+  app.get("/clinics", async (req,res)=>{
+    var theClinics =await  myRepository.getClinics ();
+    console.log(theClinics);
+
+
+
+
+  })
+
+
+   //=========================
+
+
+  // app.get("/test", (req, res) => {
+  //   res.json({
+  //     fname:"chen"
     
 
-    });
+  //   });
       
     
-  })
+  // })
 
 
   

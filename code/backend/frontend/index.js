@@ -16,13 +16,13 @@ myfunction();
 
 function getMyownData()
 {
-    fetch ("http://localhost:3001/test")
+    fetch ("http://localhost:3001/clinics")
     .then((dataAsStringFromOurApi)=>{
        return dataAsStringFromOurApi.json(); 
     })
      .then ((data)=>{
          document.querySelector ("#mydiv1").innerHTML=
-         data.fname;
+         data.NameOfClinic;
 
      })
 }
