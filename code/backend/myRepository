@@ -55,7 +55,7 @@ const getClinics = async (req, theId) => {
             let myConnectionPoolToDB = await appPool.connect()
             try {
                 let results = await myConnectionPoolToDB.query(`select * from clinics`)//where id = ? OR id = ?`, (theId, theId + 2))
-                console.log(results);
+                //console.log(results);
                 resolve(results);
             }
             catch (err) {

@@ -1,7 +1,6 @@
 
 var express = require('express');
 var app = express();
-
 var myRepository= require('./myRepository')
 
   //=========================
@@ -9,12 +8,10 @@ var myRepository= require('./myRepository')
 
   app.get("/clinics", async (req,res)=>{
     var theClinics =await  myRepository.getClinics ();
+    console.log("CHEN TEST 1")
     console.log(theClinics);
-
-
-
-
-  })
+    res.json(theClinics)
+  });
 
 
    //=========================
@@ -34,6 +31,11 @@ var myRepository= require('./myRepository')
   
 app.use(express.static('frontend'));
 
-app.listen(3001, function () {
-    console.log('My app is listening on port 3001!');
+const port = process.env.PORT ||  3001;
+
+app.listen(port, function () {
+  console.log(`My app is listening on port ${port}!`);
 });
+
+
+
