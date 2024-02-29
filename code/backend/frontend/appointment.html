@@ -41,49 +41,19 @@
         <h4 id="formTitle">אנא בחר מועד לתור</h4>
         <div>
             <div id="selectClinic">
-                <input type="select" placrholder="הזן שם מרפאה">
+                <input id="clinicinput"type="text" placrholder="הזן שם מרפאה">
             </div>
-
             <div id="chooseDateAndTime">
-            <input type="date"  placrholder="בחר תאריך">
-            <input type="time"  placrholder="בחירת שעה">
+            <input id="dateinput" type="date"  placrholder="בחר תאריך">
+            <input id="timeinput"type="time"  placrholder="בחירת שעה">
             </div>
 
-            <input type="button" value="שליחה">
+            <input type="button" value="שליחה" onclick="sendClinicAndDateTime">
         </div>
 
         
     </div>
-        <!-- <ul>
-            <li>
-                <label for="city">בחירת עיר</label>
-                <select name="select_city">
-                    <option value="1">אפשרות 1</option>
-                    <option value="2">אפשרות 2</option>
-                    <option value="3">אפשרות 3</option>
-                  </select>
-              </li>
-          <li>
-            <label for="clinic">בחירת מרפאה</label>
-            <select name="select_clinic">
-                <option value="1">אפשרות 1</option>
-                <option value="2">אפשרות 2</option>
-                <option value="3">אפשרות 3</option>
-              </select>
-          </li>
-          <li>
-            <label for="date">בחירת מועד</label>
-            <input type="date" id="date" name="date">
-          </li>
-          
-            <li>
-                <label for="time">בחירת שעה</label>
-                <input type="time" id="time" name="ime">
-              </li>
 
-        </ul> -->
-
-   
     <footer class="footer" id="footer">
         <div class="footer-inner-wrapper" role="navigation">
            <div class="footer-menus-container">
@@ -123,6 +93,8 @@
            
        
            </div>
-              
+    </footer>       
+
+     <script src="index.js"></script>         
 </body>
 </html>

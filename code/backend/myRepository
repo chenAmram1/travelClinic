@@ -73,3 +73,24 @@ const getVaccineCatalog = async (req, theId) => {
 module.exports.getVaccineCatalog = getVaccineCatalog;
 
 // //===============================================================
+
+const getAppointment = async (req, clinic,date,time) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let myConnectionPoolToDB = await appPool.connect(); 
+            let theResults = await myConnectionPoolToDB.request()
+            .input("clinic", mssql.test(), clinic) 
+            .input("date", mssql.Date(), date)   
+            .input("time", mssql.time(), time)   
+
+            .execute('uspRegisteredBetween_Date1_Date2')
+
+            resolve(theResults);
+        }
+        catch (err) {
+            console.error('ERROR SENDING SP TO DB: ', err);
+            reject('ERROR SENDING SP TO DB: ', err);
+        }
+    })
+}
+module.exports.getAppointment = getAppointment;

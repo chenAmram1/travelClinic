@@ -49,3 +49,28 @@ function getVaccineCatalog()
     })
 }
 getVaccineCatalog()
+
+// ==========================================
+
+function sendClinicAndDateTime ()
+{
+    var clinicSelect=document.querySelector("#clinicinput").value;
+    var dateSelect=document.querySelector("#dateinput").value;
+    var timeSelect=document.querySelector("#timeinput").value;
+    var myBody={
+        "clinic":clinicSelect,
+        "date":dateSelect,
+        "time":timeSelect
+    }
+    console.log(myBody);
+
+    fetch ("/appointmentsByClinic",{
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+            },
+    body: JSON.stringify(myBody)  
+    });
+
+}
+sendClinicAndDateTime ()
