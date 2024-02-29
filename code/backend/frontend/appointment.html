@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>זימון תור</title>
     <link rel="stylesheet" href="travel_clinic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     
 </head>
 <body>
@@ -33,10 +36,25 @@
     </img>
     </div>
 
-    <div id="choose_details">
+    <div id="doctorAppointment">
 
-        <h4>אנא בחר מועד לתור</h4>
-        <ul>
+        <h4 id="formTitle">אנא בחר מועד לתור</h4>
+        <div>
+            <div id="selectClinic">
+                <input type="select" placrholder="הזן שם מרפאה">
+            </div>
+
+            <div id="chooseDateAndTime">
+            <input type="date"  placrholder="בחר תאריך">
+            <input type="time"  placrholder="בחירת שעה">
+            </div>
+
+            <input type="button" value="שליחה">
+        </div>
+
+        
+    </div>
+        <!-- <ul>
             <li>
                 <label for="city">בחירת עיר</label>
                 <select name="select_city">
@@ -63,10 +81,9 @@
                 <input type="time" id="time" name="ime">
               </li>
 
-        </ul>
+        </ul> -->
 
-        <button type="submit">שליחה</button>
-    </div>
+   
     <footer class="footer" id="footer">
         <div class="footer-inner-wrapper" role="navigation">
            <div class="footer-menus-container">
