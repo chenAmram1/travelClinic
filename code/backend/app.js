@@ -6,26 +6,14 @@ var myRepository= require('./myRepository')
   //=========================
 
 
-  app.get("/clinics", async (req,res)=>{
+  app.get("/clinicInfo", async (req,res)=>{
     var theClinics =await  myRepository.getClinics ();
-    console.log("CHEN TEST 1")
     console.log(theClinics);
     res.json(theClinics)
   });
 
 
    //=========================
-
-
-  // app.get("/test", (req, res) => {
-  //   res.json({
-  //     fname:"chen"
-    
-
-  //   });
-      
-    
-  // })
 
 
   
