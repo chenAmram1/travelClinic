@@ -13,7 +13,16 @@ var myRepository= require('./myRepository')
   });
 
 
-   //=========================
+   //===============================
+
+   app.get("/catalog", async (req,res)=>{
+    var theCatalog =await  myRepository.getVaccineCatalog ();
+    console.log(theCatalog);
+    res.json(theCatalog)
+  });
+
+
+   //===============================
 
 
   

@@ -23,3 +23,29 @@ function getClinics()
     })
 }
 getClinics()
+
+// ==============================================
+
+function getVaccineCatalog()
+{
+    fetch ("http://localhost:3001/catalog")
+    .then((dataAsStringFromOurApi)=>{
+       return dataAsStringFromOurApi.json(); 
+    })
+     .then ((data)=>{
+        var catalogsArray = data.recordset; //תביא את רקורדסט למשתנה שנוח לי בשם שבחרתי
+
+        for (let i = 0; i < catalogsArray.length; i++) {
+            var catalogNumberX = catalogsArray[i];
+            document.querySelector("#vaccineCatalog").innerHTML +=
+    `
+    <ul>
+        <li> שם החיסון: ${catalogNumberX.NameOfVaccine} </li>
+        <li> מספר פעימות: ${catalogNumberX.NoOfDoses} </li>
+
+    </ul>
+    `    
+        }
+    })
+}
+getVaccineCatalog()

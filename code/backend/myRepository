@@ -45,3 +45,31 @@ const getClinics = async (req, theId) => {
 }
 
 module.exports.getClinics = getClinics;
+
+
+// //===============================================================
+
+const getVaccineCatalog = async (req, theId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let myConnectionPoolToDB = await appPool.connect()
+            try {
+                let results = await myConnectionPoolToDB.query(`select * from VaccinCatalog`)//where id = ? OR id = ?`, (theId, theId + 2))
+                //console.log(results);
+                resolve(results);
+            }
+            catch (err) {
+                console.log("there was an error while sending query to DB ", err);
+                reject(err);
+            }
+        }
+        catch (err) {
+            console.error('ERROR CONNECTION TO DB: ', err);
+            reject('ERROR CONNECTION TO DB: ', err);
+        }
+    })
+}
+
+module.exports.getVaccineCatalog = getVaccineCatalog;
+
+// //===============================================================
