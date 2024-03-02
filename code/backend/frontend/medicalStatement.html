@@ -15,7 +15,6 @@
           </a>
         <ul>
             <li><a href="index.html">אודות</a></li>
-            <li><a href="personalInfo.html">ייצוא מידע אישי</a></li>
             <li><a href="medicalStatement.html">מילוי הצהרה רפואית</a></li>
             <li><a href="appointment.html">זימון תור</a></li>
             <li><a href="clinicInfo.html">רשימת מרפאות</a></li>
@@ -35,148 +34,103 @@
 
     <form class="questionnaire">
         <h1>שאלון נוסע/ת לחו"ל</h1>
-        <h2>פרטים אישיים</h2>
-       
-        <h2>פרטים אודות הנסיעה</h2>
-            <label for="departure_date">תאריך היציאה לחו"ל:</label><br/>
-            <input type="date" id="departure_date" name="departure_date"><br/>
-            <label for="stay_duration">משך השהייה בחו"ל:</label></br>
-            <input type="number" id="stay_duration" name="stay_duration">
+        <div id="doctorAppointment">
+
+            <h3 id="formTitle">אנא מלא את הצהרת הבריאות</h3>
+            <div>
+                <div id="userID">
+                    <h4> אנא הכנס תעודת זהות</h4>
+                    <input id="userIDinput" type="char"  placeholder="אנא הכנס תעודת זהות">
+                </div>
     
-            <label for="destination_countries">ארצות היעד לפי סדר הנסיעה (כולל תחנת ביניים):</label></br>
-            <input type="text" id="destination_countries" name="destination_countries">
-          
-         
-            <h3 for="trip_purpose">מטרת הנסיעה:</h3>
-         
-                <input type="radio" id="trip_purpose_vacation" name="trip_purpose" value="vacation">
-                <label for="trip_purpose_vacation">טיול</label>
-              
-             
-                <input type="radio" id="trip_purpose_business" name="trip_purpose" value="business">
-                <label for="trip_purpose_business">עסקים</label>
-              
-             
-                <input type="radio" id="trip_purpose_mission" name="trip_purpose" value="mission">
-                <label for="trip_purpose_mission">שליחות</label>
-              
-             
-                <input type="radio" id="trip_purpose_other" name="trip_purpose" value="other">
-                <label for="trip_purpose_other">אחר</label>
-              
-                
-            <label for="trip_type">סוג הטיול:</label></br>
-           
-                <input type="radio" id="trip_type_organized" name="trip_type" value="organized">
-                <label for="trip">מאורגן</label>
-             
-      
-              <input type="radio" id="trip_type_unorganized" name="trip_type" value="unorganized">
-              <label for="trip_type_unorganized">לא מאורגן</label>
-           
-              <input type="radio" id="trip_type_backpacking" name="trip_type" value="backpacking">
-              <label for="trip_type_backpacking">טיול תרמיל</label>
-            
-              <input type="radio" id="trip_type_other" name="trip_type" value="other">
-              <label for="trip_type_other">אחר</label>
-         
-      <h2>מידע רפואי</h2>
-     
-          <label for="current_illness">האם את/ה חולה עכשיו במחלה חריפה כלשהי?</label></br>
-          
-              <input type="radio" id="current_illness_yes" name="current_illness" value="yes">
-              <label for="current_illness_yes">כן</label>
-           
-              <input type="radio" id="current_illness_no" name="current_illness" value="no" checked>
-              <label for="current_illness_no">לא</label>
-       
-          <label for="current_illness_details">אם כן, נא לפרט:</label></br>
-          <textarea id="current_illness_details" name="current_illness_details"></textarea>
-     
-          <label for="chronic_illness">האם את/ה סובל ממחלה ממחלות ממושכות (כרוניות)?</label>
-      
-              <input type="radio" id="chronic_illness_yes" name="chronic_illness" value="yes">
-              <label for="chronic_illness_yes">כן</label>
-            
-              <input type="radio" id="chronic_illness_no" name="chronic_illness" value="no" checked>
-              <label for="chronic_illness_no">לא</label>
-       
-          <label for="chronic_illness_details">אם כן, נא לפרט:</label></br>
-          <textarea id="chronic_illness_details" name="chronic_illness_details"></textarea>
-      
-          <label for="immune_system_deficiency">האם את/ה סובל/ת מליקוי במערכת החיסונית או מטופל/ת על ידי אחד מהחומרים הבאים: סטרואידים, כימותרפיה או הקרנות?</label></br>
-         
-              <input type="radio" id="immune_system_deficiency_yes" name="immune_system_deficiency" value="yes">
-              <label for="immune_system_deficiency_yes">כן</label>
-        
-              <input type="radio" id="immune_system_deficiency_no" name="immune_system_deficiency" value="no" checked>
-              <label for="immune_system_deficiency_no">לא</label>
-       
-          <label for="immune_system_deficiency_details">אם כן, נא לפרט:</label></br>
-          <textarea id="immune_system_deficiency_details" name="immune_system_deficiency_details"></textarea>
-     
-          <label for="regular_medication">האם את/ה נוטל/ת תרופות באופן קבוע (כולל גלולות למניעת הריון)?</label></br>
-       
-              <input type="radio" id="regular_medication_yes" name="regular_medication" value="yes">
-              <label for="regular_medication">כן</label>
-        
-              <input type="radio" id="regular_medication_no" name="regular_medication" value="no" checked>
-              <label for="regular_medication_no">לא</label>
-     
-          <label for="regular_medication_details">אם כן, נא לפרט:</label></br>
-          <textarea id="regular_medication_details" name="regular_medication_details"></textarea>
-   
-          <label for="allergies">האם את/ה סובל/ת מרגישות יתר לתרופות, ביצים, אחר?</label></br>
-     
-              <input type="radio" id="allergies_yes" name="allergies" value="yes">
-              <label for="allergies_yes">כן</label>
-        
-              <input type="radio" id="allergies_no" name="allergies" value="no" checked>
-              <label for="allergies_no">לא</label>
-         
-          <label for="allergies_details">אם כן, נא לפרט:</label></br>
-          <textarea id="allergies_details" name="allergies_details"></textarea>
-     
-          <label for="vaccine_reaction">האם הייתה לך תגובה כלשהי לאחר קבלת חיסון בעבר?</label></br>
-        
-              <input type="radio" id="vaccine_reaction_yes" name="vaccine_reaction" value="yes">
-              <label for="vaccine_reaction_yes">כן</label>
-         
-              <input type="radio" id="vaccine_reaction_no" name="vaccine_reaction" value="no" checked>
-              <label for="vaccine_reaction_no">לא</label>
-  
-          <label for="vaccine_reaction_details">אם כן, נא לפרט:</label></br>
-          <textarea id="vaccine_reaction_details" name="vaccine_reaction_details"></textarea>
-   
-          <label for="immunoglobulin">האם קיבלת במהלך השנה האחרונה חיסון מסוג אימונוגלובולין או עירוי דם, נא לציין את הסיבה ותאריך החיסון/עירוי דם:</label></br>
-          <input type="text" id="immunoglobulin" name="immunoglobulin">
- 
-          <label for="hepatitis">האם חלית בעבר בצהבת זיהומית (A, B, אחר)?</label></br>
-      
-              <input type="radio" id="hepatitis_yes" name="hepatitis" value="yes">
-              <label for="hepatitis_yes">כן</label>
-         
-              <input type="radio" id="hepatitis_no" name="hepatitis" value="no" checked>
-              <label for="hepatitis_no">לא</label>
- 
-          <label for="hepatitis_details">אם כן, נא לפרט:</label></br>
-          <textarea id="hepatitis_details" name="hepatitis_details"></textarea>
-   
-          <label for="chickenpox">האם חלית בעבר באבעבועות רוח?</label></br>
-         
-              <input type="radio" id="chickenpox_yes" name="chickenpox" value="yes">
-              <label for="chickenpox_yes">כן</label>
-         
-              <input type="radio" id="chickenpox_no" name="chickenpox" value="no" checked>
-              <label for="chickenpox_no">לא</label>
-  
-          <label for="chickenpox_details">אם כן, נא לפרט:</label></br>
-          <textarea id="chickenpox_details"></textarea>
- 
-  <button type="sumbit"  class="button">שלח</button>
- 
+                <div id="AcuteDisease">
+                    <h4>האם חלית בעבר במחלה חריפה?</h4>
+                    <input type="radio" id="yesAcuteDiseaseInput" name="AcuteDisease" value="1" required>
+                    <label for="yesAcuteDiseaseInput">כן</label><br>
+                    <input type="radio" id="noAcuteDiseaseInput" name="AcuteDisease" value="0">
+                    <label for="noAcuteDiseaseInput">לא</label><br>
+                </div>
+
+                <div id="ChronicIllness">
+                    <h4>האם חלית בעבר במחלה כרונית?</h4>
+                    <input type="radio" id="yesChronicIllnessInput" name="ChronicIllness" value="1" required>
+                    <label for="yesChronicIllnessInput">כן</label><br>
+                    <input type="radio" id="noChronicIllnessInput" name="ChronicIllness" value="0">
+                    <label for="noChronicIllnessInput">לא</label><br>
+                </div>
+
+                <div id="ImmuneSysDefect">
+                    <h4>האם יש לך ליקוי במערכת החיסונית ?</h4>
+                    <input type="radio" id="yesImmuneSysDefectinput" name="ImmuneSysDefect" value="1" required>
+                    <label for="yesImmuneSysDefectinput">כן</label><br>
+                    <input type="radio" id="noImmuneSysDefectinput" value="0">
+                    <label for="noImmuneSysDefectinput">לא</label><br>
+                </div>
+
+                <div id="PerMed">
+                    <h4>האם את/ה נוטלת תרופות באופן קבוע?</h4>
+                    <input type="radio" id="yesPerMedinput" name="PerMed" value="1" required>
+                    <label for="yesPerMedinput">כן</label><br>
+                    <input type="radio" id="noPerMedinput" name="PerMed" value="0">
+                    <label for="noPerMedinput">לא</label><br>
+                </div>
+
+                <div id="MedSensitivity">
+                    <h4>האםיש לך רגישות לתרופה כלשהי?</h4>
+                    <input type="radio" id="yesMedSensitivityinput" name="MedSensitivity" value="1" required>
+                    <label for="yesMedSensitivityinput">כן</label><br>
+                    <input type="radio" id="noAMedSensitivityinput" name="MedSensitivity" value="0">
+                    <label for="noAMedSensitivityinput">לא</label><br>
+                </div>
+
+                <div id="AcuteDisease">
+                    <h4>האם חווית תגובה אלרגית לאחר חיסון?</h4>
+                    <input type="radio" id="yesAcuteDiseaseinput" name="AcuteDisease" value="1" required>
+                    <label for="yesAcuteDiseaseinput">כן</label><br>
+                    <input type="radio" id="noAcuteDiseaseinput" name="AcuteDisease" value="0">
+                    <label for="noAcuteDiseaseinput">לא</label><br>
+                </div>
 
 
+                <div id="BloodTransfusion">
+                    <h4>האם נזקקת בעבר לעירוי דם?</h4>
+                    <input type="radio" id="yesBloodTransfusioninput" name="BloodTransfusion" value="1" required>
+                    <label for="yesBloodTransfusioninput">כן</label><br>
+                    <input type="radio" id="noBloodTransfusioninput" name="BloodTransfusion" value="0">
+                    <label for="noBloodTransfusioninput">לא</label><br>
+                </div>
+
+
+                <div id="Hepatitis">
+                    <h4>האם חלית בעבר בצהבת ?</h4>
+                    <input type="radio" id="yesHepatitisinput" name="Hepatitis" value="1" required>
+                    <label for="yesHepatitisinput">כן</label><br>
+                    <input type="radio" id="noHepatitisinput" name="Hepatitis" value="0">
+                    <label for="noHepatitisinput">לא</label><br>
+                </div>
+
+
+                <div id="Pox">
+                    <h4>האם בעבר חלית בהבעבועות רוח?</h4>
+                    <input type="radio" id="yesPoxinput" name="Pox" value="1" required>
+                    <label for="yesPoxinput">כן</label><br>
+                    <input type="radio" id="noPoxinput" name="Pox" value="0">
+                    <label for="noPoxinput">לא</label><br>
+                </div>
+
+                <div id="Pregnancy">
+                    <h4> האם הנך בהריון?</h4>
+                    <input type="radio" id="yesPregnancyInput" name="Pregnancy" value="1" required>
+                    <label for="yesPregnancyInput">כן</label><br>
+                    <input type="radio" id="noPregnancyInput" name="Pregnancy" value="0">
+                    <label for="noPregnancyInput">לא</label><br>
+                </div>
+
+                <input type="button" value="שליחה" onclick="sendHDN()">
+            </div>
+    
+            
+        </div> 
 
 </form>
     
