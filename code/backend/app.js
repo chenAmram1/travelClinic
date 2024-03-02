@@ -26,9 +26,9 @@ var myRepository= require('./myRepository')
    //===============================
     app.post ("/appointmentsByClinic",async (req,res)=>{//הכנסת נתוני זימון תור לדאטהבייס
       console.log(req.body);
-      var result=await myRepository.getAppointment(req.body.clinic, req.body.date, req.body.time)
+      var result = await myRepository.setAppointment(req,req.body.HDN, req.body.clinic, req.body.datetime);
       console.log("the appointment is: ",result);
-     req.json({});
+      req.json({});
     
     
     

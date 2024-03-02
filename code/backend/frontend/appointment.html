@@ -40,15 +40,20 @@
 
         <h4 id="formTitle">אנא בחר מועד לתור</h4>
         <div>
-            <div id="selectClinic">
-                <input id="clinicinput"type="text" placrholder="הזן שם מרפאה">
-            </div>
-            <div id="chooseDateAndTime">
-            <input id="dateinput" type="date"  placrholder="בחר תאריך">
-            <input id="timeinput"type="time"  placrholder="בחירת שעה">
+            <div id="HDN">
+                <input id="HDNinput" type="int"  placeholder="הכנס מספר הצהרת בריאות">
+     
             </div>
 
-            <input type="button" value="שליחה" onclick="sendClinicAndDateTime">
+            <div id="selectClinic">
+                <input id="clinicinput"type="text" placeholder="הזן שם מרפאה">
+            </div>
+
+            <div id="chooseDateAndTime">
+            <input id="datetimeinput" type="datetime"  placeholder="בחר תאריך ושעה">
+            <!-- <input id="timeinput"type="time"  placrholder="בחירת שעה"> -->
+            </div>
+            <input type="button" value="שליחה" onclick="sendClinicAndDateTime()">
         </div>
 
         

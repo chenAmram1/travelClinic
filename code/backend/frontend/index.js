@@ -54,15 +54,19 @@ getVaccineCatalog()
 
 function sendClinicAndDateTime ()
 {
+    var HDNSelect=document.querySelector("#HDNinput").value;
     var clinicSelect=document.querySelector("#clinicinput").value;
-    var dateSelect=document.querySelector("#dateinput").value;
-    var timeSelect=document.querySelector("#timeinput").value;
+    var datetimeSelect=document.querySelector("#datetimeinput").value;
+
+    // var timeSelect=document.querySelector("#timeinput").value;
     var myBody={
+        "HDN":HDNSelect,
         "clinic":clinicSelect,
-        "date":dateSelect,
-        "time":timeSelect
+        "datetime":datetimeSelect
+
+        // "time":timeSelect
     }
-    console.log(myBody);
+    //console.log(myBody);
 
     fetch ("/appointmentsByClinic",{
     method: "POST",

@@ -74,23 +74,43 @@ module.exports.getVaccineCatalog = getVaccineCatalog;
 
 // //===============================================================
 
-const getAppointment = async (req, clinic,date,time) => {
+const setAppointment = async (req, HDN, clinic, datetime) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let myConnectionPoolToDB = await appPool.connect(); 
-            let theResults = await myConnectionPoolToDB.request()
-            .input("clinic", mssql.test(), clinic) 
-            .input("date", mssql.Date(), date)   
-            .input("time", mssql.time(), time)   
+            // Connect to the database
+            let myConnectionPoolToDB = await appPool.connect();
+            try { 
+                console.log(HDN)
+                console.log(clinic)
+                console.log(datetime)
+                // console.log(time)
 
-            .execute('uspRegisteredBetween_Date1_Date2')
+                // Prepare and execute the SQL query
+                const SetAppointmentQuery = `
+                INSERT INTO DoctorAppointment (HDN, nameOfClinic, datetimeOfAppointment)
+                VALUES (@HDN, @nameOfClinic, @datetimeOfAppointment);
+                `;
 
-            resolve(theResults);
+                let theResults = await myConnectionPoolToDB.request()
+                .input("HDN", mssql.Int(), HDN) 
+                .input("nameOfClinic", mssql.NVarChar(), clinic) 
+                .input("datetimeOfAppointment", mssql.DateTime(), datetime)   
+                // .input("timeOfAppointment", mssql.Time(), time)   
+                .query(SetAppointmentQuery);
+                
+                // Handle the result if needed
+                console.log('Insert successful:', theResults);
+                resolve(theResults);
+            }
+            catch (err) {
+                console.error('ERROR EXECUTING SQL QUERY: ', err);
+                reject('ERROR EXECUTING SQL QUERY: ', err);
+            }
         }
         catch (err) {
-            console.error('ERROR SENDING SP TO DB: ', err);
-            reject('ERROR SENDING SP TO DB: ', err);
+            console.error('ERROR CONNECTION TO DB: ', err);
+            reject('ERROR CONNECTION TO DB: ', err);
         }
     })
 }
-module.exports.getAppointment = getAppointment;
+module.exports.setAppointment = setAppointment;
