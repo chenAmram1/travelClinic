@@ -91,3 +91,91 @@ function sendClinicAndDateTime ()
         `    
     })
 }
+
+// ============================================================
+
+
+function sendHDN ()
+{
+    var userIDelect=document.querySelector("#userIDinput").value;
+    //RadioButtons
+    var AcuteDiseaseRadioButtons = document.getElementsByName('AcuteDisease');
+    var AcuteDiseaseValue;
+    var ChronicIllnessRadioButtons = document.getElementsByName('ChronicIllness');
+    var ChronicIllnessValue;
+    var ImmuneSysDefectRadioButtons = document.getElementsByName('ImmuneSysDefect');
+    var ImmuneSysDefectValue;
+    var PerMedRadioButtons = document.getElementsByName('PerMed');
+    var PerMedValue;
+    var MedSensitivityRadioButtons = document.getElementsByName('MedSensitivity');
+    var MedSensitivityValue;
+    var VaccAllergyRadioButtons = document.getElementsByName('VaccAllergy');
+    var VaccAllergyValue;
+    var BloodTransfusionRadioButtons = document.getElementsByName('BloodTransfusion');
+    var BloodTransfusionValue;
+    var HepatitisRadioButtons = document.getElementsByName('Hepatitis');
+    var HepatitisValue;
+    var PoxRadioButtons = document.getElementsByName('Pox');
+    var PoxValue;
+    var PregnancyRadioButtons = document.getElementsByName('Pregnancy');
+    var PregnancyValue;
+
+    for (var i = 0; i < 2; i++) {
+        if (AcuteDiseaseRadioButtons[i].checked) {
+            AcuteDiseaseValue = AcuteDiseaseRadioButtons[i].value;
+        }
+        if (ChronicIllnessRadioButtons[i].checked) {
+            ChronicIllnessValue = ChronicIllnessRadioButtons[i].value;
+        }
+        if (ImmuneSysDefectRadioButtons[i].checked) {
+            ImmuneSysDefectValue = ImmuneSysDefectRadioButtons[i].value;
+        }
+        if (PerMedRadioButtons[i].checked) {
+            PerMedValue = PerMedRadioButtons[i].value;
+        }
+        if (MedSensitivityRadioButtons[i].checked) {
+            MedSensitivityValue = MedSensitivityRadioButtons[i].value;
+        }
+        if (VaccAllergyRadioButtons[i].checked) {
+            VaccAllergyValue = VaccAllergyRadioButtons[i].value;
+        }
+        if (BloodTransfusionRadioButtons[i].checked) {
+            BloodTransfusionValue = BloodTransfusionRadioButtons[i].value;
+        }
+        if (HepatitisRadioButtons[i].checked) {
+            HepatitisValue = HepatitisRadioButtons[i].value;
+        }
+        if (PoxRadioButtons[i].checked) {
+            PoxValue = PoxRadioButtons[i].value;
+        }
+        if (PregnancyRadioButtons[i].checked) {
+            PregnancyValue = PregnancyRadioButtons[i].value;
+        }
+    }
+
+
+    var myBody={
+        "userID":userIDelect,
+        "AcuteDisease":AcuteDiseaseValue,
+        "ChronicIllness":ChronicIllnessValue,
+        "ImmuneSysDefect":ImmuneSysDefectValue,
+        "PerMed":PerMedValue,
+        "MedSensitivity":MedSensitivityValue,
+        "VaccAllergy":VaccAllergyValue,
+        "BloodTransfusion":BloodTransfusionValue,
+        "Hepatitis":HepatitisValue,
+        "Pox":PoxValue,
+        "Pregnancy":PregnancyValue
+    }
+
+    console.log("CHEN TEST HDN VALUES: ", myBody)
+
+    fetch ("/HDNformSubmission",{
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(myBody)  
+    })   
+
+}

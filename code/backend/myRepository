@@ -105,3 +105,39 @@ const setAppointment = async (req, HDN, clinic, datetime) => {
     })
 }
 module.exports.setAppointment = setAppointment;
+
+// //===============================================================
+
+const HDNformSubmission = async (req, userID, AcuteDisease, ChronicIllness,ImmuneSysDefect,PerMed,MedSensitivity,VaccAllergy,BloodTransfusion,Hepatitis,Pox,Pregnancy) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            // Connect to the database
+            let myConnectionPoolToDB = await appPool.connect();
+            try { 
+                console.log(HDN)
+                console.log(clinic)
+                console.log(datetime)
+                // console.log(time)
+
+                let theResults = await myConnectionPoolToDB.request()
+                .input("HDN", mssql.Int(), HDN) 
+                .input("nameOfClinic", mssql.NVarChar(), clinic) 
+                .input("datetimeOfAppointment", mssql.DateTime(), datetime)   
+                .execute('spInsertAppointment');
+                
+                // Handle the result if needed
+                resolve(theResults);
+                console.log('Insert successful:', theResults.recordset);
+            }
+            catch (err) {
+                console.error('ERROR EXECUTING SQL QUERY: ', err);
+                reject('ERROR EXECUTING SQL QUERY: ', err);
+            }
+        }
+        catch (err) {
+            console.error('ERROR CONNECTION TO DB: ', err);
+            reject('ERROR CONNECTION TO DB: ', err);
+        }
+    })
+}
+module.exports.HDNformSubmission = HDNformSubmission;
