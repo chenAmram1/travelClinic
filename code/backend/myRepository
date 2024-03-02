@@ -85,22 +85,16 @@ const setAppointment = async (req, HDN, clinic, datetime) => {
                 console.log(datetime)
                 // console.log(time)
 
-                // Prepare and execute the SQL query
-                const SetAppointmentQuery = `
-                INSERT INTO DoctorAppointment (HDN, nameOfClinic, datetimeOfAppointment)
-                VALUES (@HDN, @nameOfClinic, @datetimeOfAppointment);
-                `;
-
                 let theResults = await myConnectionPoolToDB.request()
                 .input("HDN", mssql.Int(), HDN) 
                 .input("nameOfClinic", mssql.NVarChar(), clinic) 
                 .input("datetimeOfAppointment", mssql.DateTime(), datetime)   
                 // .input("timeOfAppointment", mssql.Time(), time)   
-                .query(SetAppointmentQuery);
+                .execute('SPInsertAppointment');
                 
                 // Handle the result if needed
-                console.log('Insert successful:', theResults);
                 resolve(theResults);
+                console.log('Insert successful:', theResults.recordset);
             }
             catch (err) {
                 console.error('ERROR EXECUTING SQL QUERY: ', err);

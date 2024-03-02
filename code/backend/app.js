@@ -26,12 +26,9 @@ var myRepository= require('./myRepository')
    //===============================
     app.post ("/appointmentsByClinic",async (req,res)=>{//הכנסת נתוני זימון תור לדאטהבייס
       console.log(req.body);
+      console.log("Doctor's appointment request sent to DB with: ", req.body.HDN, req.body.clinic, req.body.datetime);
       var result = await myRepository.setAppointment(req,req.body.HDN, req.body.clinic, req.body.datetime);
-      console.log("הוגשה בקשה לזימון תור עם הפרטים: ", req.body.HDN, req.body.clinic, req.body.datetime);
-      // req.json({});
-    
-    
-    
+      res.json(result.recordset);
     });
 
 

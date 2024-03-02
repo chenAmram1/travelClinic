@@ -21,7 +21,7 @@ function getClinics()
     `    
         }
     })
-}
+} 
 getClinics()
 
 // ==============================================
@@ -58,23 +58,37 @@ function sendClinicAndDateTime ()
     var clinicSelect=document.querySelector("#clinicinput").value;
     var datetimeSelect=document.querySelector("#datetimeinput").value;
 
-    // var timeSelect=document.querySelector("#timeinput").value;
     var myBody={
         "HDN":HDNSelect,
         "clinic":clinicSelect,
         "datetime":datetimeSelect
-
-        // "time":timeSelect
     }
-    //console.log(myBody);
 
     fetch ("/appointmentsByClinic",{
     method: "POST",
     headers: {
         "Content-Type": "application/json",
-            },
-    body: JSON.stringify(myBody)  
-    });
-
+        },
+        body: JSON.stringify(myBody)  
+    })   
+    .then((dataFromServer)=>{
+        console.log("CHEN TEST 1: ");
+        return dataFromServer.json();
+    })
+    .then((dataAsObject)=>{
+        console.log("CHEN TEST 2: ", dataAsObject);
+        var appointmentRecordAsArr = dataAsObject;
+        var schduledAppointment = appointmentRecordAsArr[0];
+        console.log(schduledAppointment);
+        document.querySelector("#displayDataFromDatabase").innerHTML +=
+        `
+        <div class="oneRowUsers">
+            <div> ${schduledAppointment.appointmentID} </div>
+            <div> ${schduledAppointment.HDN} </div>
+            <div> ${schduledAppointment.nameOfclinic} </div>
+            <div> ${schduledAppointment.datetimeOfAppointment} </div>
+        </div>
+        `    
+    })
 }
 sendClinicAndDateTime ()
