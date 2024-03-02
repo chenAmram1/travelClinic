@@ -91,4 +91,3 @@ function sendClinicAndDateTime ()
         `    
     })
 }
-sendClinicAndDateTime ()

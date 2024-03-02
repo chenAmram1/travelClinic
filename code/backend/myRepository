@@ -29,7 +29,6 @@ const getClinics = async (req, theId) => {
             let myConnectionPoolToDB = await appPool.connect()
             try {
                 let results = await myConnectionPoolToDB.query(`select * from clinics`)//where id = ? OR id = ?`, (theId, theId + 2))
-                //console.log(results);
                 resolve(results);
             }
             catch (err) {
@@ -55,7 +54,6 @@ const getVaccineCatalog = async (req, theId) => {
             let myConnectionPoolToDB = await appPool.connect()
             try {
                 let results = await myConnectionPoolToDB.query(`select * from VaccinCatalog`)//where id = ? OR id = ?`, (theId, theId + 2))
-                //console.log(results);
                 resolve(results);
             }
             catch (err) {
@@ -89,8 +87,7 @@ const setAppointment = async (req, HDN, clinic, datetime) => {
                 .input("HDN", mssql.Int(), HDN) 
                 .input("nameOfClinic", mssql.NVarChar(), clinic) 
                 .input("datetimeOfAppointment", mssql.DateTime(), datetime)   
-                // .input("timeOfAppointment", mssql.Time(), time)   
-                .execute('SPInsertAppointment');
+                .execute('spInsertAppointment');
                 
                 // Handle the result if needed
                 resolve(theResults);
