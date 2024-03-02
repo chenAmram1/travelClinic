@@ -72,17 +72,15 @@ function sendClinicAndDateTime ()
         body: JSON.stringify(myBody)  
     })   
     .then((dataFromServer)=>{
-        console.log("CHEN TEST 1: ");
         return dataFromServer.json();
     })
     .then((dataAsObject)=>{
-        console.log("CHEN TEST 2: ", dataAsObject);
         var appointmentRecordAsArr = dataAsObject;
         var schduledAppointment = appointmentRecordAsArr[0];
         console.log(schduledAppointment);
         document.querySelector("#displayDataFromDatabase").innerHTML +=
         `
-        <div class="oneRowUsers">
+        <div class="UserAppointment">
             <div> ${schduledAppointment.appointmentID} </div>
             <div> ${schduledAppointment.HDN} </div>
             <div> ${schduledAppointment.nameOfclinic} </div>
@@ -177,5 +175,17 @@ function sendHDN ()
         },
         body: JSON.stringify(myBody)  
     })   
-
+    .then((dataFromServer)=>{
+        return dataFromServer.json();
+    })
+    .then((dataAsObject)=>{
+        var HDNArr = dataAsObject;
+        var HDN = HDNArr[0];
+        document.querySelector("#HDNNUM").innerHTML +=
+        `
+        <div class="HDNnumberAfterSubmission">
+            <div> ${HDN.HDNGenID} </div>
+        </div>
+        `    
+    })
 }

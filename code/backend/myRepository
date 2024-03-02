@@ -84,7 +84,7 @@ const setAppointment = async (req, HDN, clinic, datetime) => {
                 // console.log(time)
 
                 let theResults = await myConnectionPoolToDB.request()
-                .input("HDN", mssql.Int(), HDN) 
+                .input("HDN", mssql.Int(), HDN) //make sure that HDN value we insert exists at HealthDeclaration table before hand 
                 .input("nameOfClinic", mssql.NVarChar(), clinic) 
                 .input("datetimeOfAppointment", mssql.DateTime(), datetime)   
                 .execute('spInsertAppointment');
@@ -114,20 +114,37 @@ const HDNformSubmission = async (req, userID, AcuteDisease, ChronicIllness,Immun
             // Connect to the database
             let myConnectionPoolToDB = await appPool.connect();
             try { 
-                console.log(HDN)
-                console.log(clinic)
-                console.log(datetime)
-                // console.log(time)
+                // Prepare and execute the SQL query to insert the Health Declaration
+                const HDNQuery = `
+                INSERT INTO HealthDeclaration (userID, AcuteDisease, ChronicIllness,ImmuneSysDefect,PerMed,MedSensitivity,VaccAllergy,BloodTransfusion,Hepatitis,Pox,Pregnancy)
+                VALUES (@userID, @AcuteDisease, @ChronicIllness,@ImmuneSysDefect,@PerMed,@MedSensitivity,@VaccAllergy,@BloodTransfusion,@Hepatitis,@Pox,@Pregnancy);
+                `;
 
-                let theResults = await myConnectionPoolToDB.request()
-                .input("HDN", mssql.Int(), HDN) 
-                .input("nameOfClinic", mssql.NVarChar(), clinic) 
-                .input("datetimeOfAppointment", mssql.DateTime(), datetime)   
-                .execute('spInsertAppointment');
+                let _ = await myConnectionPoolToDB.request()
+                .input("userID", mssql.Char(), userID) 
+                .input("AcuteDisease", mssql.Bit(), AcuteDisease) 
+                .input("ChronicIllness", mssql.Bit(), ChronicIllness)   
+                .input("ImmuneSysDefect", mssql.Bit(), ImmuneSysDefect)   
+                .input("PerMed", mssql.Bit(), PerMed)   
+                .input("MedSensitivity", mssql.Bit(), MedSensitivity)   
+                .input("VaccAllergy", mssql.Bit(), VaccAllergy)   
+                .input("BloodTransfusion", mssql.Bit(), BloodTransfusion)   
+                .input("Hepatitis", mssql.Bit(), Hepatitis)   
+                .input("Pox", mssql.Bit(), Pox)   
+                .input("Pregnancy", mssql.Bit(), Pregnancy)   
+                .query(HDNQuery);
+                
+                 // Get the HDN id the Health Declaration table generated after the submission
+                 const return_HDN_ID_Query = `
+                 SELECT MAX(HDN) AS HDNGenID FROM HealthDeclaration WHERE userID = @userID;
+                 `;
+ 
+                 let HDNnum = await myConnectionPoolToDB.request()
+                 .input("userID", mssql.Char(), userID) 
+                 .query(return_HDN_ID_Query);
                 
                 // Handle the result if needed
-                resolve(theResults);
-                console.log('Insert successful:', theResults.recordset);
+                resolve(HDNnum);
             }
             catch (err) {
                 console.error('ERROR EXECUTING SQL QUERY: ', err);

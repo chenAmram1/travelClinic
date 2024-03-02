@@ -36,9 +36,9 @@ var myRepository= require('./myRepository')
    //===============================
 
    app.post ("/HDNformSubmission",async (req,res)=>{//הכנסת נתוני זימון תור לדאטהבייס
-    console.log("HDN sunmission request sent to DB with: ", req.body.userID, req.body.AcuteDisease, req.body.ChronicIllness, req.body.ImmuneSysDefect, req.body.PerMed,req.body.MedSensitivity,req.body.VaccAllergy,req.body.BloodTransfusion,req.body.Hepatitis,req.body.Pox,req.body.Pregnancy);
-    var result = await myRepository.HDNformSubmission( req.body.userID, req.body.AcuteDisease, req.body.ChronicIllness, req.body.ImmuneSysDefect, req.body.PerMed,req.body.MedSensitivity,req.body.VaccAllergy,req.body.BloodTransfusion,req.body.Hepatitis,req.body.Pox,req.body.Pregnancy);
-    // res.json(result.recordset);
+    console.log("HDN submission request sent to DB with: ", req.body.userID, req.body.AcuteDisease, req.body.ChronicIllness, req.body.ImmuneSysDefect, req.body.PerMed,req.body.MedSensitivity,req.body.VaccAllergy,req.body.BloodTransfusion,req.body.Hepatitis,req.body.Pox,req.body.Pregnancy);
+    var result = await myRepository.HDNformSubmission( req, req.body.userID, req.body.AcuteDisease, req.body.ChronicIllness, req.body.ImmuneSysDefect, req.body.PerMed,req.body.MedSensitivity,req.body.VaccAllergy,req.body.BloodTransfusion,req.body.Hepatitis,req.body.Pox,req.body.Pregnancy);
+    res.json(result.recordset);
   });
 
 
