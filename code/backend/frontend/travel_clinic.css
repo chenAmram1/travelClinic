@@ -57,6 +57,7 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #1a1818;
+    
 }
 nav a:hover, nav a:focus{
     text-decoration: underline;
@@ -89,7 +90,7 @@ nav a:hover, nav a:focus{
     background-image:url("Corona_BG.jpg");
     background-size: cover;
     background-position: center center;
-    padding: 0 1rem;
+    padding: 30px;
 
 }
 
@@ -101,6 +102,7 @@ nav a:hover, nav a:focus{
     padding-bottom: 50px;
     padding-left: 80px;
     text-align: right;
+    position: relative;
 
 
 }
@@ -156,7 +158,7 @@ grid-template-columns: 25% 25% 25% 25%;
 }
 
 .cube img{
-    width: 200px;
+    width: 100%;
     justify-content: center;
 
 }
@@ -237,7 +239,7 @@ input[type=text] {
   }
 
   .questionnaire{
-    padding-top: 50px;
+    padding-top: 30px;
     padding-right: 30px;
     padding-bottom: 50px;
     padding-left: 80px;
@@ -261,15 +263,22 @@ input[type=text] {
     border-radius: 10px;
   }
 
-  #selectClinic{
+  #HDN{
     display: flex;
     justify-content: space-around;
-    
+  }
 
+  #HDN input{
+    width: 50%;
+  }
+
+  #selectClinic{
+    
+    display: flex;
+    justify-content: space-around; 
 
   }
   #selectClinic input{
-
     width: 50%;
   }
 
@@ -280,12 +289,23 @@ input[type=text] {
 
   }
   #chooseDateAndTime input{
-
-    width: 40%;
+    width: 50%;
   } 
 
   input{
     padding: 10px;
+  }
+
+  #displayDataFromDatabase{
+    text-align: center;
+    border-radius: 40px ;
+    color: #000000;
+    padding: 10px;
+    border: #1a1818;
+    padding-bottom: 20px;
+    /* border-style:solid ;    
+    /* background-color: rgb(244, 179, 179);  */
+
   }
 
   #doctorAppointment{
@@ -294,9 +314,47 @@ input[type=text] {
     max-width: 400px;
     min-width: 380px;
     margin: auto;
-    padding: 20px 
-    ;
     text-align: center;
 
     
   }
+
+  #clinicsinfo {
+    padding: 20px 20px 20px 20px 
+  }
+
+
+  #HDNNUM{
+    text-align: center;
+    border-radius: 40px ;
+    color: #000000;
+    border: #1a1818;
+    padding: 10px;
+    /* border-style:solid ; */
+    /* background-color: rgb(244, 179, 179);  */
+
+    
+  }
+
+  #formTitle{
+    padding-top: 20px;
+  }
+
+  #vaccineCatalog{
+    padding-right: 40px;
+    padding-bottom: 50px;
+
+  }
+
+  #vaccineCatalog li{
+    padding:10px
+  }
+
+  #clinicsinfo{
+    padding: 50px;
+  }
+
+
+ 
+
+ 

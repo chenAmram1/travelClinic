@@ -33,14 +33,13 @@
 </div>
 
     <form class="questionnaire">
-        <h1>שאלון נוסע/ת לחו"ל</h1>
         <div id="doctorAppointment">
+        <h3 id="formTitle" style=" text-align: center";>אנא מלא את הצהרת הבריאות</h3><br>        
 
-            <h3 id="formTitle">אנא מלא את הצהרת הבריאות</h3>
             <div>
                 <div id="userID">
-                    <h4> אנא הכנס תעודת זהות</h4>
-                    <input id="userIDinput" type="char"  placeholder="אנא הכנס תעודת זהות">
+                    <h4> אנא הכנס תעודת זהות</h4><br>
+                    <input id="userIDinput" type="char"  placeholder="אנא הכנס תעודת זהות"><br>
                 </div>
     
                 <div id="AcuteDisease">
@@ -123,7 +122,7 @@
                     <input type="radio" id="yesPregnancyInput" name="Pregnancy" value="1" required>
                     <label for="yesPregnancyInput">כן</label><br>
                     <input type="radio" id="noPregnancyInput" name="Pregnancy" value="0">
-                    <label for="noPregnancyInput">לא</label><br>
+                    <label for="noPregnancyInput">לא</label><br><br>
                 </div>
 
                 <input type="button" value="שליחה" onclick="sendHDN()">
@@ -132,48 +131,49 @@
             
         </div> 
 
-        <div id="HDNNUM"></div>
+        <div id="HDNNUM">
+
+        </div>
 
 </form>
     
     <footer class="footer" id="footer">
       <div class="footer-inner-wrapper" role="navigation">
          <div class="footer-menus-container">
-             <div class="footer-menu-item1">
-                 <h3> מרפאות מטיילים קרובות</h3>
-                 <a href="#">מרפאת מטיילים קרובה אליכם</a></br></br>
-                 <a href="#">שעות פעילות</a></br></br>
-                 <a href="#">שירותים הניתנים במרפאה</a></br></br>
-                 <a href="#">המלצות מטיילים</a></br></br>
-                 <a href="#">מידע נוסף</a></br></br>
-             </div>   
-             <div class="footer-menu-item2">
-                 <h3> מתחסנים? מה עליכם לדעת</h3>
-                 <a href="#">חשיבות החיסונים</a></br></br>
-                 <a href="#"> תוכנית חיסונים אישית</a></br></br>
-                 <a href="#"> תופעות לוואי אפשריות</a></br></br>
-                 <a href="#"> הכנה לקראת החיסונים</a></br></br>
-                 <a href="#">מעקב רפואי </a></br></br>
-             </div>
+            <div class="footer-menu-item1">
+                <h3> מרפאות מטיילים קרובות</h3></br>
+                <a href="#">מרפאת מטיילים קרובה אליכם</a></br></br>
+                <a href="#">שעות פעילות</a></br></br>
+                <a href="#">שירותים הניתנים במרפאה</a></br></br>
+                <a href="#">המלצות מטיילים</a></br></br>
+                <a href="#">מידע נוסף</a></br></br>
+            </div>   
+            <div class="footer-menu-item2">
+                <h3> מתחסנים? מה עליכם לדעת</h3></br>
+                <a href="#">חשיבות החיסונים</a></br></br>
+                <a href="#"> תוכנית חיסונים אישית</a></br></br>
+                <a href="#"> תופעות לוואי אפשריות</a></br></br>
+                <a href="#"> הכנה לקראת החיסונים</a></br></br>
+                <a href="#">מעקב רפואי </a></br></br>
+            </div>
 
-             <div class="footer-menu-item3">
-                 <h3> מידע על טיולים למזרח</h3>
-                 <a href="#"> יעדים מומלצים</a></br></br>
-                 <a href="#">אטרקציות ופעילויות </a></br></br>
-                 <a href="#">טיפים למטייל </a></br></br>
-                 <a href="#">בטיחות בטיול </a></br></br>
-                 <a href="#">ביטוח נסיעות </a></br></br>
-             </div>
-             <div class="footer-menu-item4">
-                 <h3> עוד על התהליך</h3>
-                 <a href="#">השלבים בתהליך </a></br></br>
-                 <a href="#">מסמכים נדרשים </a></br></br>
-                 <a href="#"> עלויות החיסונים</a></br></br>
-                 <a href="#">זכויות וחובות המטייל </a></br></br>
-                 <a href="#">שאלות נפוצות </a></br></br>
-             </div>
-         
-     
+            <div class="footer-menu-item3">
+                <h3> מידע על טיולים למזרח</h3></br>
+                <a href="#"> יעדים מומלצים</a></br></br>
+                <a href="#">אטרקציות ופעילויות </a></br></br>
+                <a href="#">טיפים למטייל </a></br></br>
+                <a href="#">בטיחות בטיול </a></br></br>
+                <a href="#">ביטוח נסיעות </a></br></br>
+            </div>
+            <div class="footer-menu-item4">
+                <h3> עוד על התהליך</h3></br>
+                <a href="#">השלבים בתהליך </a></br></br>
+                <a href="#">מסמכים נדרשים </a></br></br>
+                <a href="#"> עלויות החיסונים</a></br></br>
+                <a href="#">זכויות וחובות המטייל </a></br></br>
+                <a href="#">שאלות נפוצות </a></br></br>
+            </div>
+        
          </div>
         </footer>
  <script src="index.js"></script>         

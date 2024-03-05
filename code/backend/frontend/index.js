@@ -13,10 +13,10 @@ function getClinics()
             document.querySelector("#clinicsinfo").innerHTML +=
     `
     <ul>
-        <li> שם המרפאה: ${clinicNumberX.NameOfClinic} </li>
-        <li> עיר: ${clinicNumberX.city} </li>
-        <li>רחוב :${clinicNumberX.street} ${clinicNumberX.numOfHouse} </li>
-        <li>מספר טלפון: ${clinicNumberX.TelNO} </li>
+        <li> שם המרפאה: ${clinicNumberX.NameOfClinic} </li> 
+        עיר: ${clinicNumberX.city}  <br>
+        רחוב :${clinicNumberX.street} ${clinicNumberX.numOfHouse}  <br>
+       מספר טלפון: ${clinicNumberX.TelNO}  <br><br>
     </ul>
     `    
         }
@@ -40,8 +40,8 @@ function getVaccineCatalog()
             document.querySelector("#vaccineCatalog").innerHTML +=
     `
     <ul>
-        <li> שם החיסון: ${catalogNumberX.NameOfVaccine} </li>
-        <li> מספר פעימות: ${catalogNumberX.NoOfDoses} </li>
+        <li> שם החיסון: ${catalogNumberX.NameOfVaccine} </li> 
+         מספר פעימות: ${catalogNumberX.NoOfDoses} <br>
 
     </ul>
     `    
@@ -81,10 +81,10 @@ function sendClinicAndDateTime ()
         document.querySelector("#displayDataFromDatabase").innerHTML +=
         `
         <div class="UserAppointment">
-            <div> ${schduledAppointment.appointmentID} </div>
-            <div> ${schduledAppointment.HDN} </div>
-            <div> ${schduledAppointment.nameOfclinic} </div>
-            <div> ${schduledAppointment.datetimeOfAppointment} </div>
+        <h3> מעולה! אנחנו פנויים במועד שרצית! להלו פרטי התור: </h3><br>
+            <div>  מספר התור שלך: ${schduledAppointment.appointmentID} </div>
+            <div>שם המרפאה שלך:  ${schduledAppointment.nameOfclinic} </div>
+            <div> מועד התור שלך: ${schduledAppointment.datetimeOfAppointment} </div>
         </div>
         `    
     })
@@ -184,7 +184,9 @@ function sendHDN ()
         document.querySelector("#HDNNUM").innerHTML +=
         `
         <div class="HDNnumberAfterSubmission">
-            <div> ${HDN.HDNGenID} </div>
+            <div>מספר ההפנייה שלך: ${HDN.HDNGenID}  </div>
+            <a href="appointment.html">למעבר לקביעת תור</a></br></br>
+
         </div>
         `    
     })
