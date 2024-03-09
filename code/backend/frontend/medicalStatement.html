@@ -28,114 +28,103 @@
 <div class="header">
     <h1 style="color:aliceblue">מרפאת מטיילים כללית</h1>
     <h2  style="color:aliceblue; text-align: center; "> מתחסנים במהירות במרפאה הדיגיטלית של כללית ב-3 צעדים פשוטים</h2>
-
 </img>
 </div>
 
-    <form class="questionnaire">
+    <form class="questionnaire" >
         <div id="doctorAppointment">
         <h3 id="formTitle" style=" text-align: center";>אנא מלא את הצהרת הבריאות</h3><br>        
 
-            <div>
                 <div id="userID">
-                    <h4> אנא הכנס תעודת זהות</h4><br>
-                    <input id="userIDinput" type="char"  placeholder="אנא הכנס תעודת זהות"><br>
+                    <h4> אנא הכנס תעודת זהות</h4>
+                    <input id="userIDinput" type="char" maxlength="" placeholder="אנא הכנס תעודת זהות"><br>
                 </div>
     
-                <div id="AcuteDisease">
+                <div class="input-container">
+                <div class="radio-wrapper" id="AcuteDisease">
                     <h4>האם חלית בעבר במחלה חריפה?</h4>
                     <input type="radio" id="yesAcuteDiseaseInput" name="AcuteDisease" value="1" required>
-                    <label for="yesAcuteDiseaseInput">כן</label><br>
+                    <label for="yesAcuteDiseaseInput">כן</label>
                     <input type="radio" id="noAcuteDiseaseInput" name="AcuteDisease" value="0">
-                    <label for="noAcuteDiseaseInput">לא</label><br>
+                    <label for="noAcuteDiseaseInput">לא</label>
                 </div>
 
-                <div id="ChronicIllness">
+                <div  class="radio-wrapper" id="ChronicIllness">
                     <h4>האם חלית בעבר במחלה כרונית?</h4>
                     <input type="radio" id="yesChronicIllnessInput" name="ChronicIllness" value="1" required>
-                    <label for="yesChronicIllnessInput">כן</label><br>
+                    <label for="yesChronicIllnessInput">כן</label>
                     <input type="radio" id="noChronicIllnessInput" name="ChronicIllness" value="0">
-                    <label for="noChronicIllnessInput">לא</label><br>
+                    <label for="noChronicIllnessInput">לא</label>
                 </div>
 
-                <div id="ImmuneSysDefect">
+                <div  class="radio-wrapper"  id="ImmuneSysDefect">
                     <h4>האם יש לך ליקוי במערכת החיסונית ?</h4>
                     <input type="radio" id="yesImmuneSysDefectinput" name="ImmuneSysDefect" value="1" required>
-                    <label for="yesImmuneSysDefectinput">כן</label><br>
+                    <label for="yesImmuneSysDefectinput">כן</label>
                     <input type="radio" id="noImmuneSysDefectinput" name="ImmuneSysDefect" value="0">
-                    <label for="noImmuneSysDefectinput">לא</label><br>
+                    <label for="noImmuneSysDefectinput">לא</label>
                 </div>
 
-                <div id="PerMed">
+                <div  class="radio-wrapper"  id="PerMed">
                     <h4>האם את/ה נוטלת תרופות באופן קבוע?</h4>
                     <input type="radio" id="yesPerMedinput" name="PerMed" value="1" required>
-                    <label for="yesPerMedinput">כן</label><br>
+                    <label for="yesPerMedinput">כן</label>
                     <input type="radio" id="noPerMedinput" name="PerMed" value="0">
-                    <label for="noPerMedinput">לא</label><br>
+                   <label for="noPerMedinput">לא</label>
                 </div>
 
-                <div id="MedSensitivity">
+                <div  class="radio-wrapper"  id="MedSensitivity">
                     <h4>האםיש לך רגישות לתרופה כלשהי?</h4>
                     <input type="radio" id="yesMedSensitivityinput" name="MedSensitivity" value="1" required>
-                    <label for="yesMedSensitivityinput">כן</label><br>
+                    <label for="yesMedSensitivityinput">כן</label>
                     <input type="radio" id="noAMedSensitivityinput" name="MedSensitivity" value="0">
-                    <label for="noAMedSensitivityinput">לא</label><br>
+                   <label for="noAMedSensitivityinput">לא</label>
                 </div>
 
-                <div id="VaccAllergy">
+                <div class="radio-wrapper"  id="VaccAllergy">
                     <h4>האם חווית תגובה אלרגית לאחר חיסון?</h4>
                     <input type="radio" id="yesVaccAllergyinput" name="VaccAllergy" value="1" required>
-                    <label for="yesVaccAllergyinput">כן</label><br>
+                    <label for="yesVaccAllergyinput">כן</label>
                     <input type="radio" id="noVaccAllergyinput" name="VaccAllergy" value="0">
-                    <label for="noVaccAllergyinput">לא</label><br>
+                   <label for="noVaccAllergyinput">לא</label>
                 </div>
 
-
-                <div id="BloodTransfusion">
+                <div  class="radio-wrapper"  id="BloodTransfusion">
                     <h4>האם נזקקת בעבר לעירוי דם?</h4>
                     <input type="radio" id="yesBloodTransfusioninput" name="BloodTransfusion" value="1" required>
-                    <label for="yesBloodTransfusioninput">כן</label><br>
+                    <label for="yesBloodTransfusioninput">כן</label>
                     <input type="radio" id="noBloodTransfusioninput" name="BloodTransfusion" value="0">
-                    <label for="noBloodTransfusioninput">לא</label><br>
+                   <label for="noBloodTransfusioninput">לא</label>
                 </div>
 
-
-                <div id="Hepatitis">
+                <div  class="radio-wrapper"  id="Hepatitis">
                     <h4>האם חלית בעבר בצהבת ?</h4>
                     <input type="radio" id="yesHepatitisinput" name="Hepatitis" value="1" required>
-                    <label for="yesHepatitisinput">כן</label><br>
+                    <label for="yesHepatitisinput">כן</label>
                     <input type="radio" id="noHepatitisinput" name="Hepatitis" value="0">
-                    <label for="noHepatitisinput">לא</label><br>
+                   <label for="noHepatitisinput">לא</label>
                 </div>
 
-
-                <div id="Pox">
+                <div  class="radio-wrapper"  id="Pox">
                     <h4>האם בעבר חלית בהבעבועות רוח?</h4>
                     <input type="radio" id="yesPoxinput" name="Pox" value="1" required>
-                    <label for="yesPoxinput">כן</label><br>
+                    <label for="yesPoxinput">כן</label>
                     <input type="radio" id="noPoxinput" name="Pox" value="0">
-                    <label for="noPoxinput">לא</label><br>
+                   <label for="noPoxinput">לא</label>
                 </div>
 
-                <div id="Pregnancy">
+                <div  class="radio-wrapper"  id="Pregnancy">
                     <h4> האם הנך בהריון?</h4>
                     <input type="radio" id="yesPregnancyInput" name="Pregnancy" value="1" required>
-                    <label for="yesPregnancyInput">כן</label><br>
+                    <label for="yesPregnancyInput">כן</label>
                     <input type="radio" id="noPregnancyInput" name="Pregnancy" value="0">
-                    <label for="noPregnancyInput">לא</label><br><br>
+                    <label for="noPregnancyInput">לא</label>
                 </div>
-
-                <input type="button" value="שליחה" onclick="sendHDN()">
             </div>
-    
-            
-        </div> 
-
-        <div id="HDNNUM">
-
-        </div>
-
-</form>
+            <button class="submit-btn" type="button" value="שליחה" onclick="sendHDN()">שליחה</button>
+            <div id="HDNNUM"></div>
+</div>
+    </form>
     
     <footer class="footer" id="footer">
       <div class="footer-inner-wrapper" role="navigation">

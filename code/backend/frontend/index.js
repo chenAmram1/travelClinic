@@ -1,16 +1,16 @@
 
-function getClinics()
+function getClinics()//פונקציה זו אחראית על הבאת רשימת מרפאות ממסד הנתונים (DB) והצגתה בדף.
 {
-    fetch ("http://localhost:3001/clinicInfo")
+    fetch ("http://localhost:3001/clinicInfo")//הפונקציה משתמשת בפונקציה fetch כדי לשלוח בקשת GET
     .then((dataAsStringFromOurApi)=>{
-       return dataAsStringFromOurApi.json(); 
+       return dataAsStringFromOurApi.json(); //תובת זו צפויה להחזיר נתונים בפורמט JSON.
     })
-     .then ((data)=>{
-        var clinicsArray = data.recordset; //תביא את רקורדסט למשתנה שנוח לי בשם שבחרתי
+     .then ((data)=>{// לאחר המרת הנתונים לאובייקט, הפונקציה שומרת את מערך המרפאות במשתנה בשם clinicsArray.
+        var clinicsArray = data.recordset; //תביא את רקורדסט למשתנה  בשם שבחרתי
 
-        for (let i = 0; i < clinicsArray.length; i++) {
+        for (let i = 0; i < clinicsArray.length; i++) {//הפונקציה משתמשת בלולאה for כדי לעבור על כל מרפאה במערך clinicsArray.
             var clinicNumberX = clinicsArray[i];
-            document.querySelector("#clinicsinfo").innerHTML +=
+            document.querySelector("#clinicsinfo").innerHTML +=//בתוך הלולאה, הפונקציה משתמשת ב-DOM API כדי להוסיף רשימה (ul) חדשה עם פרטי המרפאה לתוך ה-div בעל ה-id "clinicsinfo".
     `
     <ul>
         <li> שם המרפאה: ${clinicNumberX.NameOfClinic} </li> 
@@ -22,20 +22,21 @@ function getClinics()
         }
     })
 } 
-getClinics()
+getClinics()// הפונקציה getClinics() נקראת בסוף הקובץ.
 
 // ==============================================
 
 function getVaccineCatalog()
 {
-    fetch ("http://localhost:3001/catalog")
+    fetch ("http://localhost:3001/catalog")//הפונקציה משתמשת בפונקציה fetch כדי לשלוח בקשת GET לכתובת
     .then((dataAsStringFromOurApi)=>{
-       return dataAsStringFromOurApi.json(); 
+       return dataAsStringFromOurApi.json(); //כתובת זו צפויה להחזיר נתונים בפורמט JSON.
+
     })
      .then ((data)=>{
-        var catalogsArray = data.recordset; //תביא את רקורדסט למשתנה שנוח לי בשם שבחרתי
+        var catalogsArray = data.recordset; //לאחר המרת הנתונים לאובייקט, הפונקציה שומרת את מערך קטלוג החיסונים במשתנה בשם catalogsArray.
 
-        for (let i = 0; i < catalogsArray.length; i++) {
+        for (let i = 0; i < catalogsArray.length; i++) {//הפונקציה משתמשת בלולאה for כדי לעבור על כל חיסון במערך catalogsArray.
             var catalogNumberX = catalogsArray[i];
             document.querySelector("#vaccineCatalog").innerHTML +=
     `
@@ -52,33 +53,34 @@ getVaccineCatalog()
 
 // ==========================================
 
-function sendClinicAndDateTime ()
+function sendClinicAndDateTime ()//הנתונים נשמרים במשתנים HDNSelect, clinicSelect, ו-datetimeSelect בהתאמה.
 {
     var HDNSelect=document.querySelector("#HDNinput").value;
     var clinicSelect=document.querySelector("#clinicinput").value;
     var datetimeSelect=document.querySelector("#datetimeinput").value;
 
-    var myBody={
+    var myBody={//הפונקציה יוצרת אובייקט בשם myBody.
+        //האובייקט מכיל את הנתונים שנאספו מהמשתמש בשמות המשתנים הבאים
         "HDN":HDNSelect,
         "clinic":clinicSelect,
         "datetime":datetimeSelect
     }
 
-    fetch ("/appointmentsByClinic",{
+    fetch ("/appointmentsByClinic",{//הפונקציה משתמשת ב-fetch API כדי לשלוח בקשת POST לכתובת
     method: "POST",
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json",// מציין שהגוף של הבקשה הוא בפורמט JSON.
         },
-        body: JSON.stringify(myBody)  
+        body: JSON.stringify(myBody)  //הגוף של הבקשה'בודי' מכיל את האובייקט 'מייבאדי' שהומרה למחרוזת גייסון
     })   
-    .then((dataFromServer)=>{
+    .then((dataFromServer)=>{// קבלת תגובה מהשרת
         return dataFromServer.json();
     })
-    .then((dataAsObject)=>{
+    .then((dataAsObject)=>{// עיבוד תגובה מהשרת
         var appointmentRecordAsArr = dataAsObject;
         var schduledAppointment = appointmentRecordAsArr[0];
         console.log(schduledAppointment);
-        document.querySelector("#displayDataFromDatabase").innerHTML +=
+        document.querySelector("#displayDataFromDatabase").innerHTML +=// עדכון ממשק משתמש
         `
         <div class="UserAppointment">
         <h3> מעולה! אנחנו פנויים במועד שרצית! להלו פרטי התור: </h3><br>
@@ -93,10 +95,10 @@ function sendClinicAndDateTime ()
 // ============================================================
 
 
-function sendHDN ()
+function sendHDN ()//פונקציה זו אחראית על איסוף נתונים ממשתמש לגבי ההיסטוריה הרפואית שלו, יצירת גוף בקשה (Body) ושליחתו לשרת.
 {
     var userIDelect=document.querySelector("#userIDinput").value;
-    //RadioButtons
+    //רשימות כפתורי הרדיו נשמרות במשתנים הבאים
     var AcuteDiseaseRadioButtons = document.getElementsByName('AcuteDisease');
     var AcuteDiseaseValue;
     var ChronicIllnessRadioButtons = document.getElementsByName('ChronicIllness');
@@ -119,6 +121,8 @@ function sendHDN ()
     var PregnancyValue;
 
     for (var i = 0; i < 2; i++) {
+         //בתוך הלולאה, הפונקציה בודקת באמצעות צק איזה כפתור רדיו נבחר בכל קבוצה.
+         // ושומרת את ערך שלו  במשתנה המתאים
         if (AcuteDiseaseRadioButtons[i].checked) {
             AcuteDiseaseValue = AcuteDiseaseRadioButtons[i].value;
         }
@@ -152,7 +156,7 @@ function sendHDN ()
     }
 
 
-    var myBody={
+    var myBody={//האובייקט מכיל את הנתונים שנאספו מהמשתמש בשמות המשתנים הבאים
         "userID":userIDelect,
         "AcuteDisease":AcuteDiseaseValue,
         "ChronicIllness":ChronicIllnessValue,
@@ -168,25 +172,24 @@ function sendHDN ()
 
     console.log("CHEN TEST HDN VALUES: ", myBody)
 
-    fetch ("/HDNformSubmission",{
+    fetch ("/HDNformSubmission",{//הפונקציה משתמשת ב-fetch API כדי לשלוח בקשת POST לכתובת
     method: "POST",
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json",//מציין שהגוף של הבקשה הוא בפורמט JSON.
         },
         body: JSON.stringify(myBody)  
     })   
-    .then((dataFromServer)=>{
+    .then((dataFromServer)=>{//קבלת התגובה
         return dataFromServer.json();
     })
-    .then((dataAsObject)=>{
+    .then((dataAsObject)=>{// עיבוד התגובה
         var HDNArr = dataAsObject;
         var HDN = HDNArr[0];
-        document.querySelector("#HDNNUM").innerHTML +=
+        document.querySelector("#HDNNUM").innerHTML =
         `
         <div class="HDNnumberAfterSubmission">
             <div>מספר ההפנייה שלך: ${HDN.HDNGenID}  </div>
-            <a href="appointment.html">למעבר לקביעת תור</a></br></br>
-
+            <a href="appointment.html">למעבר לקביעת תור</a>
         </div>
         `    
     })

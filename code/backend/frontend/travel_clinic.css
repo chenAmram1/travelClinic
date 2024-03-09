@@ -1,360 +1,346 @@
-*{
- padding: 0;
- margin: 0;
- box-sizing:border-box ;  
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
-h1
-{
-    text-align: center;
-
+h1 {
+  text-align: center;
 }
 
 body {
-    background-color: rgb(241, 241, 241);
-    font-family: "Roboto", sans-serif;
-    color: black;
-    background-color: rgb(255, 255, 255);
-    margin: 0;
-    
+  background-color: rgb(241, 241, 241);
+  font-family: "Roboto", sans-serif;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  margin: 0;
 }
 
 .navbar {
-    background-color: rgb(255, 255, 255);
-    font-family: "Roboto", sans-serif;
-    color: rgb(2, 2, 2);
-    padding: 50px;
-    margin: 50px;
- 
+  background-color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  color: rgb(2, 2, 2);
+  padding: 50px;
+  margin: 50px;
 }
 
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 0.6rem 2rem;
-    font-family: "Roboto", sans-serif;
-
-
-
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.6rem 2rem;
+  font-family: "Roboto", sans-serif;
 }
 
-.logo{
-    object-fit: contain;
+.logo {
+  object-fit: contain;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    gap: 1.5rem;
-   
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
 }
-
 
 nav a {
-    text-decoration: none;
-    color: #1a1818;
-    
+  text-decoration: none;
+  color: #1a1818;
 }
-nav a:hover, nav a:focus{
-    text-decoration: underline;
-}
-
-.link{
-    display: block;
-    margin: 1rem auto;
-    background-color: #0e067c;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 4px;
-    width: fit-content;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-family: "Roboto", sans-serif;
-
-
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
 }
 
-.link:hover, .link:focus{
-    text-decoration: underline;
-
-}
-.header{
-    text-align: center;
-    max-width: 100%;
-    overflow: hidden;
-    background-image:url("Corona_BG.jpg");
-    background-size: cover;
-    background-position: center center;
-    padding: 30px;
-
-}
-
-
-#footer{
-    background-color: rgb(230, 230, 230);
-    padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    text-align: right;
-    position: relative;
-
-
-}
-.footer-menus-container :hover{
-    color:  #3b33b4;
-
+.link {
+  display: block;
+  margin: 1rem auto;
+  background-color: #0e067c;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 4px;
+  width: fit-content;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+.header {
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  background-image: url("Corona_BG.jpg");
+  background-size: cover;
+  background-position: center center;
+  padding: 30px;
+}
 
+#footer {
+  background-color: rgb(230, 230, 230);
+  padding: 50px 80px;
+  text-align: right;
+  position: relative;
+}
+.footer-menus-container :hover {
+  color: #3b33b4;
+}
 
-.footer-menus-container{
-display: grid;
-grid-template-columns: 25% 25% 25% 25%;
+.footer-menus-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 1rem;
 }
 /* ========================================================================= */
-.section-wrapper{
-    display: grid;
-    grid-template-columns: 60% 40%;
+.section-wrapper {
+  display: grid;
+  grid-template-columns: 60% 40%;
 }
 
 #left-section {
-
-    padding: 20px;
-    box-sizing: border-box;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #right-section {
-    padding: 1.25rem;
-    box-sizing: border-box;
+  padding: 1.25rem;
+  box-sizing: border-box;
 }
 
-#left-section img{
-    max-width: 100%;
+#left-section img {
+  max-width: 100%;
 }
-.cube-container{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    position: flex;
+.cube-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: flex;
 }
 
 .cube {
-    border-radius: 4px;
-    max-width: 200px;
-    background-color: #ffffff;
-    padding: 1rem;
-    text-align: center;
-    position: flex;
-    border-radius: 10px;
-
-
+  border-radius: 4px;
+  max-width: 200px;
+  background-color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  position: flex;
+  border-radius: 10px;
 }
 
-.cube img{
-    width: 100%;
-    justify-content: center;
-
+.cube img {
+  width: 100%;
+  justify-content: center;
 }
 
-.personalDetailes{
-    display: flex;
-    justify-content: right;
-    gap: 1rem;
-
+.personalDetailes {
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
 }
 
-
-.PersonalInformation{
-    border-radius: 4px;
-    max-width: 10rem;
-    background-color: #dfdfdf;
-    padding: 1rem;
-    text-align: center;
-
+.PersonalInformation {
+  border-radius: 4px;
+  max-width: 10rem;
+  background-color: #dfdfdf;
+  padding: 1rem;
+  text-align: center;
 }
 
 /* =============================================================== */
-.export_content_container{
-    padding-left: 80px;
-    padding-top: 20px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    display: grid;
-    grid-template-columns: 50% 50%;
-
+.export_content_container {
+  padding-left: 80px;
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 #export_content_img {
-
-    padding: 20px;
-    box-sizing: border-box;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #export_content {
-    padding: 1.25rem;
-    box-sizing: border-box;
+  padding: 1.25rem;
+  box-sizing: border-box;
 }
 
-#export_content_img img{
-    max-width: 100%;
+#export_content_img img {
+  max-width: 100%;
 }
 
-.personalDetailes_container{
-    padding-left: 80px;
-    padding-top: 20px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 33% 33% 33%; 
+.personalDetailes_container {
+  padding-left: 80px;
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
 }
 
-#PersonalInformation{
-    border-style: solid;
-    padding: 20px;
-    border-radius: 10px;
-    gap: 1.5rem;
+#PersonalInformation {
+  border-style: solid;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 1.5rem;
 }
 
-#PersonalInformation img{
-    padding: 20px;
+#PersonalInformation img {
+  padding: 20px;
 }
 
 /* ========================================= */
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
 
-   
-  }
+.questionnaire {
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  text-align: right;
+}
 
-  .questionnaire{
-    padding-top: 30px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    text-align: right;
+.button {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 
-  
+#HDN {
+  display: flex;
+  justify-content: space-around;
+}
 
-  }
+#HDN input {
+  width: 50%;
+}
 
-  .button {
-    background-color: #04AA6D;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
+#selectClinic {
+  display: flex;
+  justify-content: space-around;
+}
+#selectClinic input {
+  width: 50%;
+}
 
-  #HDN{
-    display: flex;
-    justify-content: space-around;
-  }
+#chooseDateAndTime {
+  display: flex;
+  justify-content: space-evenly;
+}
+#chooseDateAndTime input {
+  width: 50%;
+}
 
-  #HDN input{
-    width: 50%;
-  }
+input {
+  padding: 10px;
+}
 
-  #selectClinic{
-    
-    display: flex;
-    justify-content: space-around; 
+#displayDataFromDatabase {
+  text-align: center;
+  border-radius: 40px;
+  color: #000000;
+  padding: 10px;
+  border: #1a1818;
+  padding-bottom: 20px;
 
-  }
-  #selectClinic input{
-    width: 50%;
-  }
+}
 
-  #chooseDateAndTime{
-    display: flex;
-    justify-content: space-evenly;
+#doctorAppointment {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
+#clinicsinfo {
+  padding: 20px 20px 20px 20px;
+}
 
-  }
-  #chooseDateAndTime input{
-    width: 50%;
-  } 
+#HDNNUM {
+  text-align: center;
+  border-radius: 40px;
+  color: #000000;
+  border: #1a1818;
+  padding: 10px;
 
-  input{
-    padding: 10px;
-  }
+}
+.HDNnumberAfterSubmission {
+  background-color: #e8e8e8;
+  border: 1px solid #353232;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+}
 
-  #displayDataFromDatabase{
-    text-align: center;
-    border-radius: 40px ;
-    color: #000000;
-    padding: 10px;
-    border: #1a1818;
-    padding-bottom: 20px;
-    /* border-style:solid ;    
-    /* background-color: rgb(244, 179, 179);  */
+#formTitle {
+  padding-top: 20px;
+  text-align: center;
+}
 
-  }
+#vaccineCatalog {
+  padding-right: 40px;
+  padding-bottom: 50px;
+}
 
-  #doctorAppointment{
+#vaccineCatalog li {
+  padding: 10px;
+}
 
-    width: 60%;
-    max-width: 400px;
-    min-width: 380px;
-    margin: auto;
-    text-align: center;
+#clinicsinfo {
+  padding: 50px;
+}
 
-    
-  }
+.radio-wrapper {
+  display: flex;
+  gap: 1rem;
+}
 
-  #clinicsinfo {
-    padding: 20px 20px 20px 20px 
-  }
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
 
-
-  #HDNNUM{
-    text-align: center;
-    border-radius: 40px ;
-    color: #000000;
-    border: #1a1818;
-    padding: 10px;
-    /* border-style:solid ; */
-    /* background-color: rgb(244, 179, 179);  */
-
-    
-  }
-
-  #formTitle{
-    padding-top: 20px;
-  }
-
-  #vaccineCatalog{
-    padding-right: 40px;
-    padding-bottom: 50px;
-
-  }
-
-  #vaccineCatalog li{
-    padding:10px
-  }
-
-  #clinicsinfo{
-    padding: 50px;
-  }
+button.submit-btn {
+  padding: 0.5rem 1rem;
+  background-color:rgb(255, 255, 255);;
+  color: rgb(7, 109, 115);
+  border-radius: 5px;
+  border: 1px solid rgb(26, 26, 26);
+  transition-property: color, background-color, border-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
 
 
- 
+button.submit-btn:hover,
+button.submit-btn:focus {
+  background-color: rgb(7, 109, 115);
+  color: rgb(255, 255, 255);
+}
 
- 
+.center{
+  margin: 0 auto;
+  display: block;
+}

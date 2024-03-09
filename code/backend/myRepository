@@ -23,20 +23,20 @@ const appPool = new mssql.ConnectionPool(sqlConfig)
 
 // //===============================================================
 
-const getClinics = async (req, theId) => {
-    return new Promise(async (resolve, reject) => {
+const getClinics = async (req, theId) => {//פונקציה אסינכרונית המקבלת שני פרמטרים
+    return new Promise(async (resolve, reject) => {// הבטחה להחזרת נתונים תקינים ושגויים
         try {
-            let myConnectionPoolToDB = await appPool.connect()
+            let myConnectionPoolToDB = await appPool.connect()// ניסון התחברות לDB
             try {
-                let results = await myConnectionPoolToDB.query(`select * from clinics`)//where id = ? OR id = ?`, (theId, theId + 2))
-                resolve(results);
+                let results = await myConnectionPoolToDB.query(`select * from clinics`)// משתנה לאחסון תוצאות השאילתה
+                resolve(results);// החזרת נתונים מוצלחים
             }
-            catch (err) {
+            catch (err) {// טיפול בשגיאה
                 console.log("there was an error while sending query to DB ", err);
                 reject(err);
             }
         }
-        catch (err) {
+        catch (err) {// שגיאת התחברות לDB
             console.error('ERROR CONNECTION TO DB: ', err);
             reject('ERROR CONNECTION TO DB: ', err);
         }
@@ -48,20 +48,20 @@ module.exports.getClinics = getClinics;
 
 // //===============================================================
 
-const getVaccineCatalog = async (req, theId) => {
-    return new Promise(async (resolve, reject) => {
+const getVaccineCatalog = async (req, theId) => {//פונקציה אסינכרונית המקבלת שני פרמטרים
+    return new Promise(async (resolve, reject) => {// הבטחה להחזרת נתונים תקינים ושגויים
         try {
             let myConnectionPoolToDB = await appPool.connect()
             try {
-                let results = await myConnectionPoolToDB.query(`select * from VaccinCatalog`)//where id = ? OR id = ?`, (theId, theId + 2))
-                resolve(results);
+                let results = await myConnectionPoolToDB.query(`select * from VaccinCatalog`)// משתנה לאחסון תוצאות השאילתה
+                resolve(results);// החזרת נתונים מוצלחים
             }
-            catch (err) {
+            catch (err) {// הצגת שגיאה
                 console.log("there was an error while sending query to DB ", err);
                 reject(err);
             }
         }
-        catch (err) {
+        catch (err) {// שגיאת התחברות לDB
             console.error('ERROR CONNECTION TO DB: ', err);
             reject('ERROR CONNECTION TO DB: ', err);
         }
@@ -72,17 +72,17 @@ module.exports.getVaccineCatalog = getVaccineCatalog;
 
 // //===============================================================
 
-const setAppointment = async (req, HDN, clinic, datetime) => {
-    return new Promise(async (resolve, reject) => {
+const setAppointment = async (req, HDN, clinic, datetime) => {// פונקציה אסינכורנית המקבלת 3 פרמטרים
+    return new Promise(async (resolve, reject) => {// הבטחה להחזרת נתונים תקינים ושגויים
         try {
-            // Connect to the database
+            // התחברות לDB
             let myConnectionPoolToDB = await appPool.connect();
             try { 
                 console.log(HDN)
                 console.log(clinic)
                 console.log(datetime)
-                // console.log(time)
-
+            
+                //שימוש בסטור פרוסיג'ר
                 let theResults = await myConnectionPoolToDB.request()
                 .input("HDN", mssql.Int(), HDN) //make sure that HDN value we insert exists at HealthDeclaration table before hand 
                 .input("nameOfClinic", mssql.NVarChar(), clinic) 
@@ -108,18 +108,18 @@ module.exports.setAppointment = setAppointment;
 
 // //===============================================================
 
-const HDNformSubmission = async (req, userID, AcuteDisease, ChronicIllness,ImmuneSysDefect,PerMed,MedSensitivity,VaccAllergy,BloodTransfusion,Hepatitis,Pox,Pregnancy) => {
-    return new Promise(async (resolve, reject) => {
+const HDNformSubmission = async (req, userID, AcuteDisease, ChronicIllness,ImmuneSysDefect,PerMed,MedSensitivity,VaccAllergy,BloodTransfusion,Hepatitis,Pox,Pregnancy) => {// פונקציה אסינכורנית המקבלת  פרמטרים
+    return new Promise(async (resolve, reject) => {//// הבטחה להחזרת נתונים תקינים ושגויים
         try {
-            // Connect to the database
+            //חיבור לDB
             let myConnectionPoolToDB = await appPool.connect();
             try { 
-                // Prepare and execute the SQL query to insert the Health Declaration
+                // הכנה שאילה להוספת הצהרת בריאות
                 const HDNQuery = `
                 INSERT INTO HealthDeclaration (userID, AcuteDisease, ChronicIllness,ImmuneSysDefect,PerMed,MedSensitivity,VaccAllergy,BloodTransfusion,Hepatitis,Pox,Pregnancy)
                 VALUES (@userID, @AcuteDisease, @ChronicIllness,@ImmuneSysDefect,@PerMed,@MedSensitivity,@VaccAllergy,@BloodTransfusion,@Hepatitis,@Pox,@Pregnancy);
                 `;
-
+                    // הכנסת ערכים למקומות החסרים והרצת השאילתה
                 let _ = await myConnectionPoolToDB.request()
                 .input("userID", mssql.Char(), userID) 
                 .input("AcuteDisease", mssql.Bit(), AcuteDisease) 
@@ -134,14 +134,14 @@ const HDNformSubmission = async (req, userID, AcuteDisease, ChronicIllness,Immun
                 .input("Pregnancy", mssql.Bit(), Pregnancy)   
                 .query(HDNQuery);
                 
-                 // Get the HDN id the Health Declaration table generated after the submission
+                 // חלק זה של השאילה מחזיר את הערך המקסמילי של העמודה  ומבטיחה קבלת מזהה אחרון שהוקצה
                  const return_HDN_ID_Query = `
                  SELECT MAX(HDN) AS HDNGenID FROM HealthDeclaration WHERE userID = @userID;
                  `;
- 
+                // ביצוע שאילתה ואחזור המזהה
                  let HDNnum = await myConnectionPoolToDB.request()
-                 .input("userID", mssql.Char(), userID) 
-                 .query(return_HDN_ID_Query);
+                 .input("userID", mssql.Char(), userID) // הגדרת פרמטר 
+                 .query(return_HDN_ID_Query);// שליחת השאילתה למסד הנתונים והחזרת התוצאה
                 
                 // Handle the result if needed
                 resolve(HDNnum);
